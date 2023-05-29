@@ -2,25 +2,67 @@ import "./list.css"
 import {BsPlusCircle, BsTrash} from "react-icons/bs"
 import {useState} from 'react'
 export default function List() {
+
   const [taskName,setTaskName] = useState("");
-  const [arrList, setArrList] = useState([])
+
+  const [arrList, setArrList] = useState([]);
+
+  const [check, setCheck] = useState([]);
+
   function changeValue(e){
       setTaskName(e.target.value)
     }
+  
+  function toggleCheck(position){
+    let updatedCheck = check.map((item,i) =>{
+      return position === i ? !item : item;
+    })
+    setCheck(updatedCheck)
+  }
+  // console.log(check);
 
-  const arrItems = arrList.map((item) =>{
-    return (<div className="item"><BsTrash />{item}</div>)
+  function deleteList(position){
+    
+    let updateList = arrList.filter((item,i) =>{
+      if(position !== i){
+        return item
+      }
+    })
+    let updatecheck = check.filter((item,i) =>{
+      if(position !== i){
+        return item
+      }
+    }) 
+    console.log(updatecheck);
+    setCheck(updatecheck)
+    setArrList([...updateList])
+    }
+
+  const arrItems = arrList.map((item,i)=>{
+    return (
+    <div className="item" key={i} id={i}>
+      <div className="eachItem" style={{textDecoration: check[i] ? 'line-through' : 'none'}}>
+        {item}
+      </div>
+      <div className="icons">
+        <input type="checkbox" className="status" checked={check[i]} onChange={() => toggleCheck(i)}/>
+        <BsTrash className="delete" onClick={() => deleteList(i)}/>  
+      </div>
+    </div>)
   })
+
   function addItem(){
     if(taskName.length){
-        setArrList([...arrList,taskName])
-        setTaskName("")
+        setArrList([...arrList,taskName]);
+        setTaskName("");
+        setCheck([...check,false]);
     }
   }
-  function addItemByEnter(e){ 
+  function addItemByEnter(e){
     if(e.key=="Enter" && taskName.length){
-        setArrList([...arrList,taskName])
-        setTaskName("")
+        setArrList([...arrList,taskName]);
+        setTaskName("");
+        setCheck([...check,false]);
     }
 }
   return (

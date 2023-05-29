@@ -47,10 +47,29 @@
     height: auto;
 }
 .item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-top: 8px;
     color:#000000;
     box-shadow: 1px 1px 3px #222222;
-    padding: 10px 0px 10px 0px;
+    padding: 15px 5px 15px 5px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.7rem;
+}
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+.status, .delete{
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.status{
+    height: 1.7rem;
+    width: 1.7rem;
+    background-color: #000000;
 }

@@ -41,26 +41,36 @@
 .add:hover{
     color: #56a252;
 }
-.items{
-    align-self:flex-start;
+.items{ 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
-    height: auto;
 }
+
 .item{
     display: flex;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 8px;
     color:#000000;
     box-shadow: 1px 1px 3px #222222;
     padding: 15px 5px 15px 5px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.7rem;
 }
+.eachItem{
+    width: 90%;
+    overflow-x: scroll;
+}
+.eachItem::-webkit-scrollbar{
+    display: none
+    ;
+}
 .icons{
     display: flex;
-    align-items: center;
+    align-items: center;;
     gap: 10px;
     justify-content: space-between;
 }
@@ -71,5 +81,20 @@
 .status{
     height: 1.7rem;
     width: 1.7rem;
-    background-color: #000000;
+}
+
+@media screen and (max-width:800px) {
+    .list{
+        width: 80%;
+    }
+    ::placeholder{
+        font-size: .8rem;
+    }
+    .item,.status,.delete{
+        font-size: 1.2rem;
+    }
+    .status{
+        height: 1.2rem;
+        width: 1.2rem;
+    }
 }

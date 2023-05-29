@@ -19,7 +19,7 @@ export default function List() {
     })
     setCheck(updatedCheck)
   }
-  console.log(check);
+  console.log(arrList);
 
   function deleteList(position){
     

@@ -19,7 +19,7 @@ export default function List() {
     })
     setCheck(updatedCheck)
   }
-  // console.log(check);
+  console.log(check);
 
   function deleteList(position){
     
@@ -32,8 +32,7 @@ export default function List() {
       if(position !== i){
         return item
       }
-    }) 
-    console.log(updatecheck);
+    })
     setCheck(updatecheck)
     setArrList([...updateList])
     }

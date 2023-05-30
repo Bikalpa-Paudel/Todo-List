@@ -19,22 +19,13 @@ export default function List() {
     })
     setCheck(updatedCheck)
   }
-  console.log(arrList);
-
   function deleteList(position){
-    
-    let updateList = arrList.filter((item,i) =>{
-      if(position !== i){
-        return item
-      }
-    })
-    let updatecheck = check.filter((item,i) =>{
-      if(position !== i){
-        return item
-      }
-    })
-    setCheck(updatecheck)
-    setArrList([...updateList])
+    const newArr = [...arrList]
+    newArr.splice(position,1)
+    setArrList(newArr)
+    const newCheck = [...check]
+    newCheck.splice(position,1)
+    setCheck(newCheck)
     }
 
   const arrItems = arrList.map((item,i)=>{

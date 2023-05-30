@@ -65,8 +65,7 @@
     overflow-x: scroll;
 }
 .eachItem::-webkit-scrollbar{
-    display: none
-    ;
+    display: none;
 }
 .icons{
     display: flex;
